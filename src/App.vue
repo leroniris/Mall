@@ -14,7 +14,7 @@ export default {
   },
   data(){
     return {
-
+      res:{}
     }
   },
   mounted(){
@@ -22,8 +22,16 @@ export default {
     // storage.setItem('user',{a:1});
     // storage.setItem('abc',{a:1},'user')
     // storage.clear('a');
-    // 本地加载请求静态json文件的形式实现数据mock
-    this.axios.get('/mock/user/login.json').then((res)=>{
+    // 1、本地加载请求静态json文件的形式实现数据mock
+    // this.axios.get('/mock/user/login.json').then((res)=>{
+    //   this.res = res;
+    // });
+    // 2、通过esay-mock平台实现mock
+    // this.axios.get('/user/login').then((res)=>{
+    //   this.res = res;
+    // });
+    // 3、本地集成mockjs实现数据mock
+    this.axios.get('/user/login').then((res)=>{
       this.res = res;
     });
    
