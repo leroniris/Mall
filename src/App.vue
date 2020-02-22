@@ -7,7 +7,7 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
-
+import axios from 'axios'
 export default {
   name: 'App',
   components: {
@@ -17,6 +17,13 @@ export default {
     return {
       age: 30
     }
+  },
+  mounted(){
+    // let url = "https://www.imooc.com/"
+    let url = "https://www.easy-mock.com/mock/5b012c1fe6e1035843cd3aff/mockapi/table/list"
+    axios.get(url).then(()=>{
+
+    })
   }
 }
 </script>
