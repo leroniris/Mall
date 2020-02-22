@@ -7,7 +7,7 @@
 <script>
 // import axios from 'axios'
 // import jsonp from 'jsonp'
-import storage from './storage/index'
+// import storage from './storage/index'
 export default {
   name: 'App',
   components: {
@@ -21,7 +21,12 @@ export default {
     // storage.setItem('a', 1);
     // storage.setItem('user',{a:1});
     // storage.setItem('abc',{a:1},'user')
-    storage.clear('a');
+    // storage.clear('a');
+    // 本地加载请求静态json文件的形式实现数据mock
+    this.axios.get('/mock/user/login.json').then((res)=>{
+      this.res = res;
+    });
+   
   }
 }
 </script>
