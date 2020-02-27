@@ -16,8 +16,20 @@ export default {
     }
   },
   mounted(){
-    
-   
+    this.getUser();
+    this.getCartCount();  
+  },
+  methods:{
+    getUser(){
+      this.axios.get('/user').then((res)=>{
+        this.$store.dispatch('saveUsername',res.username);
+      })
+    },
+    getCartCount(){
+      this.axios.get('/carts/products/sum').then((res)=>{
+        this.$store.dispatch('saveCartCount',res);
+      })
+    }
   }
 }
 </script>
